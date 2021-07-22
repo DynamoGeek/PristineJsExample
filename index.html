@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pristine JS Example</title>
+    <link rel="stylesheet" href="styles.min.css">
+</head>
+<body>
+<div class="form-container">
+
+    <form id="form1" novalidate method="post">
+        <input type="hidden"/>
+        <div class="form-group">
+            <label for="email">Email<sup style="color: red;">*</sup></label>
+            <input id="email" type="email" required data-pristine-required-message="Please choose a username" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label for="cell">Cell</label>
+            <input id="cell" type="tel" class="form-control" data-pristine-pattern="/^(\+\d{1,2}\s?)?1?\-?\.?\s?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/" data-pristine-pattern-message="Invalid cell number"/>
+        </div>
+
+        <div class="form-group">
+            <label for="age">Your age<sup style="color: red;">*</sup></label>
+            <input id="age" type="number" min="13" data-pristine-min-message="You must be at least 13-years-old" required class="form-control" value="" />
+        </div>
+        <div class="form-group">
+            <label for="password">Password<sup style="color: red;">*</sup></label>
+            <input id="password" type="password" required data-pristine-required-message="Please choose a password" data-pristine-pattern= "/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$/" data-pristine-pattern-message="Minimum 8 characters, at least one uppercase letter, one lowercase letter and one number" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label for="password_confirmation">Retype password</label>
+            <input id="password_confirmation" type="password" data-pristine-equals="#password" data-pristine-equals-message="Passwords don't match" class="form-control" />
+        </div>
+        <div class="form-group inline-label">
+            <input id="ch1" type="checkbox" name="future" required data-pristine-required-message="You must accept the terms and conditions"/>
+            <label for="ch1">I accept the terms  and conditions<sup style="color: red;">*</sup></label><br/>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Submit" class="btn"/>
+        </div>
+    </form>
+</div>
+<script src="pristine.min.js"></script>
+<script src="validate.js"></script>
+</body>
+</html>
